@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --azul-ceu: #8ecae6ff;
+    --azul-esverdeado: #219ebcff;
+    --azul-prussiano: #023047ff;
+    --amarelo: #ffb703ff;
+    --laranja: #fb8500ff;
+    --texto-titulo: "Hind Madurai", sans-serif;
+    --texto-corpo: "Roboto", sans-serif;
+}
+
+body{
+    background-color: var(--azul-ceu);
+    color: var(--azul-prussiano);
+    font-family: var(--texto-titulo);
+}
+
+.titulo-principal{
+    font-family: var(--texto-corpo);
+}
