@@ -119,6 +119,38 @@ body{
     cursor: pointer;
 }
 
+.barra{
+    background-color: var(--azul-prussiano);
+    height: 30px;
+    width: 100%;
+}
+
+.forca{
+    height: 30px;
+    position: relative;
+    bottom: 30px;
+}
+
+.fraca{
+    width: 25%;
+    background-color: #e71b32;
+}
+
+.media{
+    width: 50%;
+    background-color: #faf408;
+}
+
+.forte{
+    width: 100%;
+    background-color: #00ff85;
+}
+
+.parametro-senha-textos{
+    display: flex;
+    justify-content: space-between;
+}
+
 @media screen and (min-width: 728px) {
     .parametro-couluna__senha{
         flex-direction: row;
