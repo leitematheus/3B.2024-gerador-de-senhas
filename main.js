@@ -1,8 +1,17 @@
 const numeroSenha = document.querySelector('.parametro-senha__texto');
-let tamanhoSenha = 5;
+let tamanhoSenha = 12;
 numeroSenha.textContent = tamanhoSenha;
 
+const letraMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const letraMinusculas = 'abcdefghijklmnopqrstuvwxyz';
+const numero = '0123456789' ;
+const simbolo = '!@%*?&';
+
 const botoes = document.querySelectorAll('.parametro-senha__botao');
+const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.checkbox');
+
+const forcaSenha = document.querySelector('.forca');
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
@@ -25,18 +34,14 @@ function aumentaTamanho(){
     geraSenha();
 }
 
-const campoSenha = document.querySelector('#campo-senha');
-const checkbox = document.querySelectorAll('.checkbox');
+
 
 for ( i= 0; i < checkbox.length; i++){
     checkbox[1].onclick = geraSenha;
 }
 
 
-const letraMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const letraMinusculas = 'abcdefghijklmnopqrstuvwxyz';
-const numero = '0123456789' ;
-const simbolo = '!@%*?&';
+
 
 geraSenha();
 
@@ -63,4 +68,22 @@ function geraSenha(){
     }
 
     campoSenha.value = senha;
+    classificaSenha(alfabeto.length);
+}
+
+function classificaSenha(tamanhoAlfabeto){
+    let entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
+    console.log(entropia);
+    forcaSenha.classList.remove('fraca', 'media', 'forte');
+    if (entropia > 57){
+        forcaSenha.classList.add('forte');
+    } 
+    else if(entropia > 35 && entropia < 57) {
+        forcaSenha.classList.add('media')
+    }
+    else if (entropia <= 35){
+        forcaSenha.classList.add('fraca')
+    }
+    const valorEntropia = document.querySelector('.entropia')
+    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
 }
